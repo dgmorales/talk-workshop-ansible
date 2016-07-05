@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Ansible, para sysadmins em recuperação</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/night.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,8 +24,178 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Ansible</h1>
+					<h3>Para Sysadmins em recuperação</h3>
+					<img src="images/ansible2.png" height="150" border="0" style=" background:none; border:none; box-shadow:none;"/>
+					<br/>
+					<p>Diego Morales</p>
+					<p>
+						<small>
+						&nbsp;
+						<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
+						<a href="mailto:morales@propus.com.br" style="vertical-align:middle;">morales@propus.com.br</a>
+						&nbsp;
+						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a>
+						</small>
+					</p>
+					<aside class="notes">
+					<p>Meu nome é Diego Morales. Sysadmin há 15+ anos.  Trabalho na Propus, que presta serviços de infraestrutura de TI e de BigData e NoSQL.  </p>
+
+					<p>Quem aqui não usa infra como código (de forma relevante)?</p>
+					</aside>
+				</section>
+
+				<section>
+					<img src="images/ansible-architecture.svg" style="border:0;">
+					<p><i>"Ansible’s <a href="http://docs.ansible.com/ansible/index.html">main goals</a> are simplicity and ease-of-use."</i></p>
+				</section>
+
+			<section>
+				<section data-background="#4D7E65">
+				<!--
+				<section>
+				-->
+					<ul>
+						<li><i>Agentless</i></li>
+						<ul>
+							<li>Push over SSH. Pull rodando local.</li>
+							<li><a href="http://docs.ansible.com/ansible/intro_windows.html">Windows</a>: WinRM + PowerShell Remoting</li>
+						</ul>
+						<li>Simplifica orquestração em várias máquinas</li>
+						<li>Linguagem: YAML + templates jinja2</li>
+						<li>Python!</li>
+						<li>Auth/Crypto: seu fiel amigo SSH</li>
+					</ul>
+					<aside class="notes">
+						<p>Depende de um inventário de hosts, que pode ser dinâmico, um script, vários prontos.</p>
+						<p>Orquestração: vai no balanceador e tira máquinas x, y, z do serviço, vai em x, y e z e atualiza a aplicação, reboota elas, e aguarda voltarem, vai lá no balanceador e põe elas de volta.</p>
+					</aside>
+				</section>
+
+				<section>
+					<pre><code data-trim>
+- hosts: all
+  name: Install SSH Server
+  tasks:
+  - package: name=openssh-server state=present
+  - template:
+      src: sshd_config
+      dest: /etc/ssh/sshd_config
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+    - restart ssh
+  - service: name=ssh state=started
+  handlers:
+  - name: restart ssh
+    service: name=ssh state=restarted
+					</code></pre>
+					<p><i>Install SSH Server</i> é uma <b>play</b>, aplicada em <i>all</i> hosts
+					<p><i>package</i> (<b>new</b> in 2.0), <i>template</i> e <i>service</i> são <b>modules</b></p>
+					<aside class="notes">
+						<p>Simples?</p>
+						<p>YAML: "é só dados", "não é uma linguagem de programação". Sei, como se isso ajudasse neste caso.</p>
+						<p>Mas tem a vantagem de ser mais facilmente consumível programaticamente.</p>
+						<p>Note o <i>handler</i> separado.</p>
+						<p>Cada task pode ter um name. Mas é opcional.</p>
+					</aside>
+				</section>
+
+				<section>
+					<h3>Loops</h3>
+					<pre><code data-trim>
+- hosts: all
+  tasks:
+  - name: create symlinks for our app
+    file: >
+      state=link src=/opt/myapp/bin/{{ item }}
+      dest=/usr/local/bin/myapp-{{ item }} force=yes
+    with_items:
+      - run
+      - build
+      - update
+      - foo
+					</code></pre>
+					<p>with_dict, with_nested, with_fileglobs, e <a href="http://docs.ansible.com/ansible/playbooks_loops.html">mais...</a></p>
+					<aside class="notes">
+						<p>Idempotência: uma bandeira do Puppet. Ele é provavelmente o melhor dos 3 nisso, mas não é como se os outros ignorassem esse conceito.</p>
+					</aside>
+				</section>
+			</section>
+
+
+			<section>
+				<section data-background="#BA9600">
+				<!--
+				<section>
+				-->
+					<h2>A negação</h2>
+					<br/>
+					<p><i>Ahh, é muito complicado.</i></p>
+					<p><i>Ahh, eu tenho um script aqui que já faz tudo o que eu preciso.</i></p>
+					<p><i>Ahh, essa tarefa aqui precisa de um input humano diferente toda vez, não tem como automatizar.</i></p>
+
+				</section>
+				<section data-background="#B5533C">
+				<!--
+				<section>
+				-->
+					<h2>Vamos fazer arte</h2>
+					<p><a href="https://github.com/dgmorales/example-ansible-quick-n-dirty">https://github.com/dgmorales/example-ansible-quick-n-dirty</a></p>
+					<ul>
+						<li>O mais errado é não começar a usar <i>infra as code</i>.</li>
+						<br/>
+						<li>Melhores práticas <b>foram</b> mal tratadas neste exemplo.</li>
+						<li>Use com discernimento.</li>
+						<li>Continue aprendendo. Continue evoluindo.</li>
+					</ul>
+
+				</section>
+				<section>
+					<h2>Evoluindo</h2>
+					<ul>
+						<li><a href="https://doauto.wordpress.com/2016/06/30/criando-pacotes-facilmente-com-o-fpm/">Criar pacotes é uma barbada com o FPM</a></li>
+						<li><a href="http://docs.ansible.com/ansible/playbooks_variables.html">Varíaveis</a> nas group_vars ou no inventário</li>
+						<li>Crie <a href="http://docs.ansible.com/ansible/playbooks_roles.html#roles">roles</a></li>
+						<li>Senhas no <a href="http://docs.ansible.com/ansible/playbooks_vault.html">Ansible Vault</a> ...
+							<ul><li> ... ou em algo como o <a href="https://www.vaultproject.io/">Hashicorp Vault</a> + <a href="http://docs.ansible.com/ansible/playbooks_lookups.html">lookups</a> (<a href="https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/lookup/hashi_vault.py">hashi_vault</a> ou <a href="https://github.com/jhaals/ansible-vault">ansible-vault</a>)</li></ul>
+					</ul>
+					<aside class="notes">
+						<p>O meu ponto é que se fazer tudo do jeito ideal está te impedindo de começar, então comece de outro jeito.<p>
+						<p>Eu joguei pela janela algumas boas práticas. Faça isso se necessário para começar, mas não faça isso pra sempre.</p>
+						<p>Existe uma distância tênue entre "simplificar para facilitar começar isso" e "isso está me ferrando agora, eu devia ter começado isso direito".</p>
+						<p>Quando você começar a sentir o segundo sentimento, você já alcançou uma maturidade maior, e pode começar a priorizar começar a coisa do jeito certo.</p>
+						<p>O importante é seguir estudando e conhecendo melhor a ferramenta, e estar atento/ciente das melhores práticas, para reconhecer quando elas são o que te falta.</p>
+					</aside>
+
+				</section>
+			</section>
+
+				<section>
+					<h2>Contato</h2>
+					<br/>
+					<p>
+						Diego Morales
+						<br/>
+						<small>
+							<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
+							<a href="mailto:morales@propus.com.br" style="vertical-align:middle;">morales@propus.com.br</a>
+							&nbsp;
+							<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+							<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a>
+							<br/>
+							<img src="images/wordpress.png" height="32" width="32" border="0" style="border:none;vertical-align:middle;"/>
+							<a href="http://doauto.wordpress.com" style="vertical-align:middle;">Do, Automate, Repeat: http://doauto.wordpress.com</a>
+						</small>
+					</p>
+					<br/>
+					<p>Slides: <a href="http://dgmorales.info/talks/ansible-quick-n-dirty">http://dgmorales.info/talks/ansible-quick-n-dirty</a></p>
+					<p>Veja também: <a href="http://dgmorales.info/talks/cm-pas">Puppet, Ansible e Salt</a></p>
+			</section>
+
 			</div>
 		</div>
 

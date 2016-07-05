@@ -11,19 +11,3 @@ algumas formas de uso não ideais, mas que talvez sejam exatamente o que você o
 precisam para começar a automatizar seus processos.
 
 Pois o ERRADO é não começar a usar infraestrutura como código.
-
-
-- Básico (slides do cmpas)
-  - Arquitetura
-  - Push/agentless/etc
-  - Exemplos
-
-- O errado é não começar a fazer infraestrutura como código
-  - configure/make/make install (bleergh)
-  - módulo script
-  - vars_prompt
-  - vault
-
-
-  (tentar passar um extra var file como param)
-  (chamar ansible através de um script python que gera o inventário e tem parâmetros transformados em variáveis)

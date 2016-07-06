@@ -41,18 +41,56 @@
 						</small>
 					</p>
 					<aside class="notes">
-					<p>Meu nome é Diego Morales. Sysadmin há 15+ anos.  Trabalho na Propus, que presta serviços de infraestrutura de TI e de BigData e NoSQL.  </p>
+					<small>
+					<p>Meu nome é Diego Morales. Sysadmin há 15+ anos. Trabalho na Propus, que presta
+					serviços de infraestrutura de TI e de BigData e NoSQL. Na Propus eu uso muito Puppet,
+					mas tenho cada vez mais usado também o Ansible.</p>
 
 					<p>Quem aqui não usa infra como código (de forma relevante)?</p>
+
+					<p>Dentre as ferramentas de orquestração/automação e outras de infras as code,
+					<b>ansible é a mais fácil de começar</b>.</p>
+
+					<p>Não me exige uma mudança tão dramática e imediata nos meu modelos mentais. Logo
+					via SSH, instalo pacote, configuro e reinicío (<b>imperativo</b>).</p>
+
+			  	<p>Mudanças essas que podem ser muito positivas, mas também podem ser uma barreira à
+			  	adoção de infra como código.</p>
+				</small>
 					</aside>
+				</section>
+
+				<section data-background="#BA9600">
+				<!--
+				<section>
+				-->
+					<h2>A negação</h2>
+					<br/>
+					<p><i>Ahh, é muito complicado.</i></p>
+					<p><i>Ahh, eu tenho um script aqui que já faz tudo o que eu preciso.</i></p>
+					<p><i>Ahh, essa tarefa aqui precisa de um input humano diferente toda vez, não tem como automatizar.</i></p>
+
+					<aside class="notes">
+					<small>
+					<p>Vamos automatizar/codificar?</p>
+					<p>Coisas que eu já ouvi.</p>
+					<p>Gente que veio me agradecer depois por eu ter mostrado o Ansible.</p>
+				</small>
+					</aside>
+
 				</section>
 
 				<section>
 					<img src="images/ansible-architecture.svg" style="border:0;">
 					<p><i>"Ansible’s <a href="http://docs.ansible.com/ansible/index.html">main goals</a> are simplicity and ease-of-use."</i></p>
+					<aside class="notes">
+					 <p>Objetivo explícito: simplicidade e facilidade de uso.</p>
+					 <p>Control Machine: o seu laptop ou um servidor.</p>
+					 <p>Push via SSH/powershell, sem agente.</p>
+					 <p>Web interface: Tower (pago). Comum junto com Rundeck.</p>
+					</aside>
 				</section>
 
-			<section>
 				<section data-background="#4D7E65">
 				<!--
 				<section>
@@ -70,10 +108,17 @@
 					</ul>
 					<aside class="notes">
 						<p>Depende de um inventário de hosts, que pode ser dinâmico, um script, vários prontos.</p>
-						<p>Orquestração: vai no balanceador e tira máquinas x, y, z do serviço, vai em x, y e z e atualiza a aplicação, reboota elas, e aguarda voltarem, vai lá no balanceador e põe elas de volta.</p>
+
+						<p>YAML: uns acham bom, outros acham ruim</p>
+
+						<p>Orquestração: vai no balanceador e tira máquinas x, y, z do serviço, vai em x, y
+						e z e atualiza a aplicação, reboota elas, e aguarda voltarem, vai lá no balanceador
+						e põe elas de volta.</p>
+
 					</aside>
 				</section>
 
+<!--
 				<section>
 					<pre><code data-trim>
 - hosts: all
@@ -125,20 +170,9 @@
 					</aside>
 				</section>
 			</section>
-
+-->
 
 			<section>
-				<section data-background="#BA9600">
-				<!--
-				<section>
-				-->
-					<h2>A negação</h2>
-					<br/>
-					<p><i>Ahh, é muito complicado.</i></p>
-					<p><i>Ahh, eu tenho um script aqui que já faz tudo o que eu preciso.</i></p>
-					<p><i>Ahh, essa tarefa aqui precisa de um input humano diferente toda vez, não tem como automatizar.</i></p>
-
-				</section>
 				<section data-background="#B5533C">
 				<!--
 				<section>
@@ -152,8 +186,11 @@
 						<li>Use com discernimento.</li>
 						<li>Continue aprendendo. Continue evoluindo.</li>
 					</ul>
-
+					<aside class="notes">
+						<p>Exibição/explicação do código. Ver no link.</p>
+					</aside>
 				</section>
+
 				<section>
 					<h2>Evoluindo</h2>
 					<ul>

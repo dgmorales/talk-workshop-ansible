@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Ansible, para sysadmins em recuperação</title>
+		<title>Workshop Ansible #CPBR10</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/night.css">
+		<link rel="stylesheet" href="css/theme/sky.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -25,44 +25,172 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>Ansible</h1>
-					<h3>Para Sysadmins em recuperação</h3>
+					<h1>Infra as Code</h1>
+					<h4>Torne-se um profissional diferenciado!!!!</h4>
+					<h4>Workshop Ansible</h4>
 					<img src="images/ansible2.png" height="150" border="0" style=" background:none; border:none; box-shadow:none;"/>
 					<br/>
-					<p>Diego Morales</p>
+					<p>Diego Morales e Christiano Linuxmen</p>
 					<p>
 						<small>
 						&nbsp;
-						<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
-						<a href="mailto:morales@propus.com.br" style="vertical-align:middle;">morales@propus.com.br</a>
+						<img src="images/FB-f-Logo__blue_29.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="https://www.facebook.com/papodesysadmin" style="vertical-align:middle;">/papodesysadmin</a>
 						&nbsp;
 						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<img src="images/Logo1.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="http://twitter.com/papodesysadmin" style="vertical-align:middle;">@papodesysadmin</a>
+						&nbsp;
+						<img src="images/wordpress.png" height="32" width="32" border="0" style="border:none;vertical-align:middle;"/>
+						<a href="http://papodesysadmin.org" style="vertical-align:middle;">http://papodesysadmin.org</a>
+						<br/>
+						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
 						<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a>
+						&nbsp;
+						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="http://twitter.com/linuxmen" style="vertical-align:middle;">@linuxmen</a>
+						&nbsp;
+						<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
+						<a href="mailto:dmorales@stone.com.br" style="vertical-align:middle;">dmorales@stone.com.br</a>
 						</small>
 					</p>
 					<aside class="notes">
 					<small>
-					<p>Sysadmin das antigas, mas em recuperação.</p>
-					<p>Eu tô aqui para ajudar outros sysadmins das antigas, a começar utilizar infra as code, para melhorar o mundo :)</p>
-
-					<p>Quem aqui não usa infra como código (de forma relevante)?</p>
-
 					<p>Dentre as ferramentas de orquestração/automação e outras de infras as code,
 					<b>ansible é a mais fácil de começar</b>.</p>
 
 					<p>Não me exige uma mudança tão dramática e imediata nos meu modelos mentais. Logo
 					via SSH, instalo pacote, configuro e reinicío (<b>imperativo</b>).</p>
 
-			  	<p>Mudanças essas que podem ser muito positivas, mas também podem ser uma barreira à
-			  	adoção de infra como código.</p>
 				</small>
 					</aside>
 				</section>
 
-				<section data-background="#BA9600">
-				<!--
 				<section>
+					<p>Estes slides:</p>
+					<p>http://dgmorales.info/cpbr10</p>
+				</section>
+
+				<section>
+					<h2>Somos todos programadores</h2>
+					<img src="images/monkey.gif" width="700">
+					<aside class="notes">
+						<p>NÓS SEMPRE FOMOS!</p>
+						<p>Talvez um pouco patas duras que nem o nosso amigo aí.</p>
+
+						<p>Shell script, para montar uma expressão regular, ou fazer um dialplan no asterisk</p>
+
+						<p>Só que é muito adhoc, tudo disperso, não modulariza e não reusa quase nada. faz
+						e joga fora.</p>
+
+						<p>Estamos agora organizando isso, parando de jogar fora, pensando em modularização
+						e reuso, em testes, e tendo uma equipe toda trabalhando no mesmo códgio.</p>
+
+					</aside>
+				</section>
+
+				<section>
+				<section>
+					<h2>Infraestrutura como código</h2>
+					<br/>
+					<img src="images/infraascode.png" width="800" style="border:0;">
+
+		  		<aside class="notes">
+						<p>Antes de prosseguir, vamos ao porquê.</p>
+						<p>Para quem tem um zilhão de servidores iguais, ou só muitos, nem precisa discutir.</p>
+						<p>Mas para quem tem um bando de servidores diferentes, também é útil!</p>
+						<p>Eu não vou falar muito sobre isso, só 2 ideias que eu acho importantes:</p>
+						<p>É para todos nós</p>
+						<p>Automatizar não é só a respeito de velocidade</p>
+		  		</aside>
+				</section>
+
+				<section>
+					<h2>É para todos</h2>
+
+					<p3>Exemplo: um <i>base system</i></p>
+					<ul>
+						<li>Repositórios de pacotes (mirrors/proxy)</li>
+						<li>Resolver DNS, cliente NTP</li>
+						<li>Usuários, integração LDAP/AD</li>
+						<li>Agente de monitoramento, SNMP</li>
+						<li>Backup (agente, etc)</li>
+						<li>Regras gerais de FW</li>
+						<li>Config de envio de emails</li>
+						<li>Logs: rotação, servidor central</li>
+					</ul>
+
+					<p>Ahh ... mas eu tenho uma imagem, preseed/kickstart, script, documentação ...</p>
+
+		  		<aside class="notes">
+						<p>Um dos meus maiores ganhos com o Puppet.</p>
+						<p>Ok, você já tem uma imagem pronta, um preseed/kickstart, um script ... ótimo, excelente. Isso já é infra as code! Então você pode gostar destes caras.</p>
+						<ul>
+							<li>Pode ser mais fácil de atualizar que a imagem.</li>
+							<li>Só no preseed/kickstart fica mais difícil. </li>
+							<li>Não precisa refazer o servidor (infra imutável é outro papo)</li>
+							<li>Scripts ... gconf é a evolução dos scripts, dê uma chance</li>
+						</ul>
+						<p>Meu caso: preseed simples + base system em Puppet.</p>
+						<p>Tá na era da documentação ainda? Vamos ao próximo slide</p>
+		  		</aside>
+				</section>
+
+				<section>
+					<h2>Não é só velocidade e escala</h2>
+					<p>É <b>documentação executável</b>. Permite ...</p>
+					<ul>
+						<li>... consistência na implementação</p>
+						<li>... preservar e evoluir conhecimentos</p>
+						<li>... versionamento</p>
+						<li>... revisão pelos pares</p>
+						<li>... testes repetíveis, e até automatizados</p>
+						<li>... uma gerência de mudanças que faz sentido</p>
+					</ul>
+
+		  		<aside class="notes">
+		      <p>O que antes era um serviço, um trabalho manual, algo dentro da cabeça de alguém ou, com sorte, esforço e MUITA disciplina, algo documentado de forma atualizada... agora é um código executável, que pode evoluir, ser revisado, etc.</p>
+					<p>Infra como código pode casar muito bem com ITIL, mas isso é outra palestra ...</p>
+		  		</aside>
+				</section>
+				</section>
+
+				<section>
+					<h2>Config Management</h2>
+					<br/>
+					&nbsp; &nbsp;
+					<a href="http://www.puppet.com/"><img src="images/logo-puppet-company.png" width="280" style="border:0;"></a>
+					&nbsp; &nbsp;
+					<a href="http://www.ansible.com/"><img src="images/ansible.png"/ width="200" style="border:0;"></a>
+					&nbsp; &nbsp;
+					<a href="http://saltstack.com/"><img src="images/SaltStack.png"/ width="320" style="border:0;"></a>
+					<br/>
+					<hr>
+					<br/>
+					<a href="http://www.opscode.com/chef"><img src="images/logo-chef.png" width="150" style="border:0;"/></a>
+					&nbsp; &nbsp;
+					<a href="http://www.cfengine.com"><img src="images/logo-cfengine.png"
+						width="280" style="border:0;"/></a>
+					<aside class="notes">
+
+					<p>Ferramentas de orquestração e gerência de configuração</p>
+
+					<p>Concorrentes ou complementares? Há controvérsias.</p>
+
+					<p>Minha visão: concorrentes. Os diferentes focos e abordagens diferentes formam um espectro, puppet e
+					ansible nos extremos, salt buscando tudo. Chuto que o crescimento de cada um vai agravar a concorrência.</p>
+
+					<p>4 principais players + o pai de todos, cfengine.</p>
+
+					<p>Deixei o Chef de fora. Ele é muito popular. Muito mais que Salt e Ansible. Deve ser ótimo. Achei "muito parecido" com puppet (até mais complexo) e eu apostei no Puppet.</p>
+
+					</aside>
+				</section>
+
+				<!--
+				<section data-background="#BA9600">
 				-->
+				<section>
 					<h2>A negação</h2>
 					<br/>
 					<p><i>Ahh, é muito complicado.</i></p>
@@ -90,10 +218,10 @@
 					</aside>
 				</section>
 
-				<section data-background="#4D7E65">
 				<!--
-				<section>
+				<section data-background="#4D7E65">
 				-->
+				<section>
 					<ul>
 						<li><i>Agentless</i></li>
 						<ul>
@@ -117,7 +245,6 @@
 					</aside>
 				</section>
 
-<!--
 				<section>
 					<pre><code data-trim>
 - hosts: all
@@ -169,36 +296,21 @@
 					</aside>
 				</section>
 			</section>
--->
-
-			<section>
-				<section data-background="#B5533C">
-				<!--
-				<section>
-				-->
-					<h2>Vamos fazer arte</h2>
-					<img src="images/fazendo-arte.jpg"/>
-					<p><a href="https://github.com/dgmorales/example-ansible-quick-n-dirty">https://github.com/dgmorales/example-ansible-quick-n-dirty</a></p>
-					<aside class="notes">
-					<ul>
-						<br/>
-						<li>Melhores práticas <b>foram</b> mal tratadas neste exemplo.</li>
-						<li>Use com discernimento.</li>
-						<li>Continue aprendendo. Continue evoluindo.</li>
-					</ul>
-						<p>Exibição/explicação do código. Ver no link.</p>
-					</aside>
-				</section>
 
 				<section>
-					<h2>Evoluindo</h2>
-					<p>O mais errado é não começar a usar <i>infra as code</i>, mas ...</p>
+					<h2>E mais ...</h2>
 					<ul>
+						<!--
 						<li><a href="https://doauto.wordpress.com/2016/06/30/criando-pacotes-facilmente-com-o-fpm/">Criar pacotes é uma barbada com o FPM</a></li>
-						<li><a href="http://docs.ansible.com/ansible/playbooks_variables.html">Varíaveis</a> nas group_vars ou no inventário</li>
-						<li>Crie <a href="http://docs.ansible.com/ansible/playbooks_roles.html#roles">roles</a></li>
+						-->
+						<li><a href="http://docs.ansible.com/ansible/playbooks_variables.html">Varíaveis</a></li>
+						<li>Criando <a href="http://docs.ansible.com/ansible/playbooks_roles.html#roles">roles</a></li>
 						<li>Senhas no <a href="http://docs.ansible.com/ansible/playbooks_vault.html">Ansible Vault</a> ...
 							<ul><li> ... ou em algo como o <a href="https://www.vaultproject.io/">Hashicorp Vault</a> + <a href="http://docs.ansible.com/ansible/playbooks_lookups.html">lookups</a> (<a href="https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/lookup/hashi_vault.py">hashi_vault</a> ou <a href="https://github.com/jhaals/ansible-vault">ansible-vault</a>)</li></ul>
+						<li>Suporte ao Windows</li>
+						<li>ansible-container</li>
+						<li>Ansible Tower</li>
+						<li>Integrando com o Rundeck</li>
 					</ul>
 					<aside class="notes">
 						<p>O meu ponto é que se fazer tudo do jeito ideal está te impedindo de começar, então comece de outro jeito.<p>
@@ -211,29 +323,54 @@
 				</section>
 			</section>
 
+			<section>
+				<!--
+				<section data-background="#B5533C">
+				-->
+				<section>
+					<h2>Bora brincar</h2>
+					<img src="images/fazendo-arte.jpg"/>
+					<p><a href="https://github.com/dgmorales/example-workshop-ansible">https://github.com/dgmorales/example-workshop-ansible</a></p>
+					<aside class="notes">
+					</aside>
+				</section>
+
 				<section>
 					<h2>Contato</h2>
 					<br/>
+					<p>Diego Morales e Christiano Linuxmen</p>
 					<p>
-						Diego Morales
-						<br/>
 						<small>
-							<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
-							<a href="mailto:morales@propus.com.br" style="vertical-align:middle;">morales@propus.com.br</a>
-							&nbsp;
-							<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
-							<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a>
-							<br/>
+						<br/>
+						&nbsp;
+						<img src="images/FB-f-Logo__blue_29.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="https://www.facebook.com/papodesysadmin" style="vertical-align:middle;">/papodesysadmin</a>
+						&nbsp;
+						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<img src="images/Logo1.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="http://twitter.com/papodesysadmin" style="vertical-align:middle;">@papodesysadmin</a>
+						&nbsp;
+						<img src="images/wordpress.png" height="32" width="32" border="0" style="border:none;vertical-align:middle;"/>
+						<a href="http://papodesysadmin.org" style="vertical-align:middle;">http://papodesysadmin.org</a>
+						<br/>
+						<br/>
+						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a>
+						&nbsp;
+						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="http://twitter.com/linuxmen" style="vertical-align:middle;">@linuxmen</a>
+						&nbsp;
+						<br/>
+						<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
+						<a href="mailto:dmorales@stone.com.br" style="vertical-align:middle;">dmorales@stone.com.br</a> (estamos contratando!)
+						<br/>
 							<img src="images/wordpress.png" height="32" width="32" border="0" style="border:none;vertical-align:middle;"/>
-							<a href="http://doauto.wordpress.com" style="vertical-align:middle;">Do, Automate, Repeat: http://doauto.wordpress.com</a>
+							<a href="http://doauto.blog" style="vertical-align:middle;">Do, Automate, Repeat: http://doauto.blog</a>
 							<br/>
-							<img src="images/FB-f-Logo__blue_29.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
-							<a href="https://www.facebook.com/papodesysadmin" style="vertical-align:middle;">/papodesysadmin</a>
 						</small>
 					</p>
 					<br/>
-					<p>Slides: <a href="http://dgmorales.info/talks/ansible-quick">http://dgmorales.info/talks/ansible-quick</a></p>
-					<p>Veja também: <a href="http://dgmorales.info/talks/cm-pas">Puppet, Ansible e Salt</a></p>
+					<p>Slides: http://dgmorales.info/cpbr10</p>
 			</section>
 
 			</div>

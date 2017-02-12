@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Workshop Ansible #CPBR10</title>
+		<title>Workshop Ansible</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/sky.css">
@@ -25,25 +25,13 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1>Infra as Code</h1>
-					<h4>Torne-se um profissional diferenciado!!!!</h4>
-					<h4>Workshop Ansible</h4>
+					<h1>Ansible</h1>
+					<h4>Workshop</h4>
 					<img src="images/ansible2.png" height="150" border="0" style=" background:none; border:none; box-shadow:none;"/>
 					<br/>
 					<p>Diego Morales</p>
 					<p>
 						<small>
-						&nbsp;
-						<img src="images/FB-f-Logo__blue_29.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
-						<a href="https://www.facebook.com/papodesysadmin" style="vertical-align:middle;">/papodesysadmin</a>
-						&nbsp;
-						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
-						<img src="images/Logo1.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
-						<a href="http://twitter.com/papodesysadmin" style="vertical-align:middle;">@papodesysadmin</a>
-						&nbsp;
-						<img src="images/wordpress.png" height="32" width="32" border="0" style="border:none;vertical-align:middle;"/>
-						<a href="http://papodesysadmin.org" style="vertical-align:middle;">http://papodesysadmin.org</a>
-						<br/>
 						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
 						<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a>
 						&nbsp;
@@ -65,145 +53,10 @@
 
 				<section>
 					<p>Estes slides:</p>
-					<p>http://dgmorales.info/cpbr10</p>
+					<p>http://dgmorales.info/talks/workshop-ansible</p>
 					<br/>
-					<p>Instale aí: ansible, git, vagrant, virtualbox</p>
-				</section>
-
-				<section>
-					<h2>Somos todos programadores</h2>
-					<img src="images/monkey.gif" width="700">
-					<aside class="notes">
-						<p>NÓS SEMPRE FOMOS!</p>
-						<p>Talvez um pouco patas duras que nem o nosso amigo aí.</p>
-
-						<p>Shell script, para montar uma expressão regular, ou fazer um dialplan no asterisk</p>
-
-						<p>Só que é muito adhoc, tudo disperso, não modulariza e não reusa quase nada. faz
-						e joga fora.</p>
-
-						<p>Estamos agora organizando isso, parando de jogar fora, pensando em modularização
-						e reuso, em testes, e tendo uma equipe toda trabalhando no mesmo códgio.</p>
-
-					</aside>
-				</section>
-
-				<section>
-				<section>
-					<h2>Infraestrutura como código</h2>
-					<br/>
-					<img src="images/infraascode.png" width="800" style="border:0;">
-
-		  		<aside class="notes">
-						<p>Antes de prosseguir, vamos ao porquê.</p>
-						<p>Para quem tem um zilhão de servidores iguais, ou só muitos, nem precisa discutir.</p>
-						<p>Mas para quem tem um bando de servidores diferentes, também é útil!</p>
-						<p>Eu não vou falar muito sobre isso, só 2 ideias que eu acho importantes:</p>
-						<p>É para todos nós</p>
-						<p>Automatizar não é só a respeito de velocidade</p>
-		  		</aside>
-				</section>
-
-				<section>
-					<h2>É para todos</h2>
-
-					<p3>Exemplo: um <i>base system</i></p>
-					<ul>
-						<li>Repositórios de pacotes (mirrors/proxy)</li>
-						<li>Resolver DNS, cliente NTP</li>
-						<li>Usuários, integração LDAP/AD</li>
-						<li>Agente de monitoramento, SNMP</li>
-						<li>Backup (agente, etc)</li>
-						<li>Regras gerais de FW</li>
-						<li>Config de envio de emails</li>
-						<li>Logs: rotação, servidor central</li>
-					</ul>
-
-					<p>Ahh ... mas eu tenho uma imagem, preseed/kickstart, script, documentação ...</p>
-
-		  		<aside class="notes">
-						<p>Um dos meus maiores ganhos com o Puppet.</p>
-						<p>Ok, você já tem uma imagem pronta, um preseed/kickstart, um script ... ótimo, excelente. Isso já é infra as code! Então você pode gostar destes caras.</p>
-						<ul>
-							<li>Pode ser mais fácil de atualizar que a imagem.</li>
-							<li>Só no preseed/kickstart fica mais difícil. </li>
-							<li>Não precisa refazer o servidor (infra imutável é outro papo)</li>
-							<li>Scripts ... gconf é a evolução dos scripts, dê uma chance</li>
-						</ul>
-						<p>Meu caso: preseed simples + base system em Puppet.</p>
-						<p>Tá na era da documentação ainda? Vamos ao próximo slide</p>
-		  		</aside>
-				</section>
-
-				<section>
-					<h2>Não é só velocidade e escala</h2>
-					<p>É <b>documentação executável</b>. Permite ...</p>
-					<ul>
-						<li>... consistência na implementação</p>
-						<li>... preservar e evoluir conhecimentos</p>
-						<li>... versionamento</p>
-						<li>... revisão pelos pares</p>
-						<li>... testes repetíveis, e até automatizados</p>
-						<li>... uma gerência de mudanças que faz sentido</p>
-					</ul>
-
-		  		<aside class="notes">
-		      <p>O que antes era um serviço, um trabalho manual, algo dentro da cabeça de alguém ou, com sorte, esforço e MUITA disciplina, algo documentado de forma atualizada... agora é um código executável, que pode evoluir, ser revisado, etc.</p>
-					<p>Infra como código pode casar muito bem com ITIL, mas isso é outra palestra ...</p>
-		  		</aside>
-				</section>
-				</section>
-
-				<section>
-					<h2>Config Management</h2>
-					<br/>
-					&nbsp; &nbsp;
-					<a href="http://www.puppet.com/"><img src="images/logo-puppet-company.png" width="280" style="border:0;"></a>
-					&nbsp; &nbsp;
-					<a href="http://www.ansible.com/"><img src="images/ansible.png"/ width="200" style="border:0;"></a>
-					&nbsp; &nbsp;
-					<a href="http://saltstack.com/"><img src="images/SaltStack.png"/ width="320" style="border:0;"></a>
-					<br/>
-					<hr>
-					<br/>
-					<a href="http://www.opscode.com/chef"><img src="images/logo-chef.png" width="150" style="border:0;"/></a>
-					&nbsp; &nbsp;
-					<a href="http://www.cfengine.com"><img src="images/logo-cfengine.png"
-						width="280" style="border:0;"/></a>
-					<aside class="notes">
-
-					<p>Ferramentas de orquestração e gerência de configuração</p>
-
-					<p>Concorrentes ou complementares? Há controvérsias.</p>
-
-					<p>Minha visão: concorrentes. Os diferentes focos e abordagens diferentes formam um espectro, puppet e
-					ansible nos extremos, salt buscando tudo. Chuto que o crescimento de cada um vai agravar a concorrência.</p>
-
-					<p>4 principais players + o pai de todos, cfengine.</p>
-
-					<p>Deixei o Chef de fora. Ele é muito popular. Muito mais que Salt e Ansible. Deve ser ótimo. Achei "muito parecido" com puppet (até mais complexo) e eu apostei no Puppet.</p>
-
-					</aside>
-				</section>
-
-				<!--
-				<section data-background="#BA9600">
-				-->
-				<section>
-					<h2>A negação</h2>
-					<br/>
-					<p><i>Ahh, é muito complicado.</i></p>
-					<p><i>Ahh, eu tenho um script aqui que já faz tudo o que eu preciso.</i></p>
-					<p><i>Ahh, essa tarefa aqui precisa de um input humano diferente toda vez, não tem como automatizar.</i></p>
-
-					<aside class="notes">
-					<small>
-					<p>Vamos automatizar/codificar?</p>
-					<p>Coisas que eu já ouvi.</p>
-					<p>Gente que veio me agradecer depois por eu ter mostrado o Ansible.</p>
-				</small>
-					</aside>
-
+					<p>Instale aí: git, vagrant, virtualbox</p>
+					<p>git clone <a href="https://github.com/dgmorales/workshop-ansible">https://github.com/dgmorales/workshop-ansible</a></p>
 				</section>
 
 				<section>
@@ -231,6 +84,7 @@
 						<li>Linguagem: YAML + templates jinja2</li>
 						<li>Python!</li>
 						<li>Auth/Crypto: seu fiel amigo SSH</li>
+						<li>Excelente documentação tutorial: <a href="http://docs.ansible.com/ansible/intro.html">http://docs.ansible.com/ansible/intro.html</a></li>
 					</ul>
 					<aside class="notes">
 						<p>Depende de um inventário de hosts, que pode ser dinâmico, um script, vários prontos.</p>
@@ -244,60 +98,21 @@
 					</aside>
 				</section>
 
+			<section>
+				<!--
+				<section data-background="#B5533C">
+				-->
 				<section>
-					<pre><code data-trim>
-- hosts: all
-  name: Install SSH Server
-  tasks:
-  - package: name=openssh-server state=present
-  - template:
-      src: sshd_config
-      dest: /etc/ssh/sshd_config
-      owner: root
-      group: root
-      mode: 0644
-    notify:
-    - restart ssh
-  - service: name=ssh state=started
-  handlers:
-  - name: restart ssh
-    service: name=ssh state=restarted
-					</code></pre>
-					<p><i>Install SSH Server</i> é uma <b>play</b>, aplicada em <i>all</i> hosts
-					<p><i>package</i> (<b>new</b> in 2.0), <i>template</i> e <i>service</i> são <b>modules</b></p>
+					<h2>Bora brincar</h2>
+					<img src="images/fazendo-arte.jpg"/>
+					<p><a href="https://github.com/dgmorales/workshop-ansible">https://github.com/dgmorales/workshop-ansible</a></p>
 					<aside class="notes">
-						<p>Simples?</p>
-						<p>YAML: "é só dados", "não é uma linguagem de programação". Sei, como se isso ajudasse neste caso.</p>
-						<p>Mas tem a vantagem de ser mais facilmente consumível programaticamente.</p>
-						<p>Note o <i>handler</i> separado.</p>
-						<p>Cada task pode ter um name. Mas é opcional.</p>
-					</aside>
-				</section>
-
-				<section>
-					<h3>Loops</h3>
-					<pre><code data-trim>
-- hosts: all
-  tasks:
-  - name: create symlinks for our app
-    file: >
-      state=link src=/opt/myapp/bin/{{ item }}
-      dest=/usr/local/bin/myapp-{{ item }} force=yes
-    with_items:
-      - run
-      - build
-      - update
-      - foo
-					</code></pre>
-					<p>with_dict, with_nested, with_fileglobs, e <a href="http://docs.ansible.com/ansible/playbooks_loops.html">mais...</a></p>
-					<aside class="notes">
-						<p>Idempotência: uma bandeira do Puppet. Ele é provavelmente o melhor dos 3 nisso, mas não é como se os outros ignorassem esse conceito.</p>
 					</aside>
 				</section>
 			</section>
 
 				<section>
-					<h2>E mais ...</h2>
+					<h2>Mais ...</h2>
 					<ul>
 						<!--
 						<li><a href="https://doauto.wordpress.com/2016/06/30/criando-pacotes-facilmente-com-o-fpm/">Criar pacotes é uma barbada com o FPM</a></li>
@@ -322,38 +137,12 @@
 				</section>
 			</section>
 
-			<section>
-				<!--
-				<section data-background="#B5533C">
-				-->
-				<section>
-					<h2>Bora brincar</h2>
-					<img src="images/fazendo-arte.jpg"/>
-					<p><a href="https://github.com/dgmorales/example-workshop-ansible">https://github.com/dgmorales/example-workshop-ansible</a></p>
-					<aside class="notes">
-					</aside>
-				</section>
-			</section>
-
 				<section>
 					<h2>Contato</h2>
 					<br/>
 					<p>Diego Morales</p>
 					<p>
 						<small>
-						<br/>
-						&nbsp;
-						<img src="images/FB-f-Logo__blue_29.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
-						<a href="https://www.facebook.com/papodesysadmin" style="vertical-align:middle;">/papodesysadmin</a>
-						&nbsp;
-						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
-						<img src="images/Logo1.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
-						<a href="http://twitter.com/papodesysadmin" style="vertical-align:middle;">@papodesysadmin</a>
-						&nbsp;
-						<img src="images/wordpress.png" height="32" width="32" border="0" style="border:none;vertical-align:middle;"/>
-						<a href="http://papodesysadmin.org" style="vertical-align:middle;">http://papodesysadmin.org</a>
-						<br/>
-						<br/>
 						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
 						<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a>
 						&nbsp;
@@ -366,7 +155,7 @@
 						</small>
 					</p>
 					<br/>
-					<p>Slides: http://dgmorales.info/cpbr10</p>
+					<p>Slides: http://dgmorales.info/talks/workshop-ansible</p>
 			</section>
 
 			</div>

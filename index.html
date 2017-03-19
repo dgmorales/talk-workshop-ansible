@@ -26,7 +26,7 @@
 			<div class="slides">
 				<section>
 					<h1>Ansible</h1>
-					<h4>Workshop</h4>
+					<h4>Workshop PHP Experience 2017</h4>
 					<img src="images/ansible2.png" height="150" border="0" style=" background:none; border:none; box-shadow:none;"/>
 					<br/>
 					<p>Diego Morales</p>
@@ -37,6 +37,20 @@
 						&nbsp;
 						<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
 						<a href="mailto:dmorales@stone.com.br" style="vertical-align:middle;">dmorales@stone.com.br</a>
+						<br/>
+						&nbsp;
+						<img src="images/FB-f-Logo__blue_29.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="https://www.facebook.com/papodesysadmin" style="vertical-align:middle;">/papodesysadmin</a>
+						&nbsp;
+						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<img src="images/Logo1.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="http://twitter.com/papodesysadmin" style="vertical-align:middle;">@papodesysadmin</a>
+						&nbsp;
+						<img src="images/Logo1.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="http://tg.me/ansiblebr" style="vertical-align:middle;">@ansiblebr</a>
+						</small>
+					</p>
+					<aside class="notes">
 						</small>
 					</p>
 					<aside class="notes">
@@ -50,18 +64,113 @@
 				</small>
 					</aside>
 				</section>
-
 				<section>
-					<p>Estes slides:</p>
-					<p>http://dgmorales.info/talks/workshop-ansible</p>
+				<img src="images/avatar-biz-2016.jpg" width="200">
+				<small>
+				<p>Diego Morales</p>
+				<ul>
+					<li>Sysadmin desde 1999 ...</li>
+					<li>... doido por automação ...</li>
+					<li>... líder de IaaS no time Evolução Infra da Stone Pagamentos.</li>
+					<li>Estamos aí nas comunidades e eventos, no #papodesysadmin, meetup DevOps Carioca, #TheDevConf, ...</li>
+				</ul>
+			  </small>
+
+				<br/>
+				<img src="images/logo-stone.jpg" width="200" style="border:0;">
+				<img src="images/logo-ei.png" width="350" style="border:0;">
+
+				</section>
+
+
+		<section>
+		<section>
+			<h2>Infra as Code (IaC)</h2>
+			<br/>
+			<img src="images/infraascode.png" width="800" style="border:0;">
+
+  		<aside class="notes">
+				<p>Antes de prosseguir, vamos ao porquê.</p>
+				<p>Para quem tem um zilhão de servidores iguais, ou só muitos, nem precisa discutir.</p>
+				<p>Mas para quem tem um bando de servidores diferentes, também é útil!</p>
+				<p>Eu não vou falar muito sobre isso, só 2 ideias que eu acho importantes:</p>
+				<p>É para todos nós</p>
+				<p>Automatizar não é só a respeito de velocidade</p>
+  		</aside>
+		</section>
+
+		<section>
+			<h2>Não é só velocidade e escala</h2>
+			<p>IaC transforma a infra em algo ...</p>
+			<ul>
+				<li>... reproduzível (rapidamente),</p>
+				<li>... consistente,</p>
+				<li>... documentado,</p>
+				<li>... versionado,</p>
+				<li>... com mudanças que podem efetivamente ser <b>revisadas</b> e <b>testadas automaticamente</b>.</p>
+			</ul>
+  		<aside class="notes">
+      <p>O que antes era um serviço, um trabalho manual, algo dentro da cabeça de alguém ou, com sorte, esforço e MUITA disciplina, algo documentado de forma atualizada... agora é um código executável, que pode evoluir, ser revisado, etc.</p>
+  		</aside>
+
+		</section>
+				<section>
+					<h2>Config Management</h2>
 					<br/>
-					<p>Instale aí: git, vagrant, virtualbox</p>
-					<p>git clone <a href="https://github.com/dgmorales/workshop-ansible">https://github.com/dgmorales/workshop-ansible</a></p>
+					&nbsp; &nbsp;
+					<a href="http://www.puppet.com/"><img src="images/logo-puppet-company.png" width="280" style="border:0;"></a>
+					&nbsp; &nbsp;
+					<a href="http://www.ansible.com/"><img src="images/ansible.png"/ width="200" style="border:0;"></a>
+					&nbsp; &nbsp;
+					<a href="http://saltstack.com/"><img src="images/SaltStack.png"/ width="320" style="border:0;"></a>
+					<br/>
+					<a href="http://www.opscode.com/chef"><img src="images/logo-chef.png" width="150" style="border:0;"/></a>
+					&nbsp; &nbsp;
+					<a href="http://www.cfengine.com"><img src="images/logo-cfengine.png"
+						width="280" style="border:0;"/></a>
+					<aside class="notes">
+
+					<p>Ferramentas de orquestração e gerência de configuração</p>
+
+					<p>Concorrentes ou complementares? Há controvérsias.</p>
+
+					<p>Minha visão: concorrentes. Os diferentes focos e abordagens diferentes formam um espectro, puppet e
+					ansible nos extremos, salt buscando tudo. Chuto que o crescimento de cada um vai agravar a concorrência.</p>
+
+					<p>4 principais players + o pai de todos, cfengine.</p>
+
+					<p>Deixei o Chef de fora. Ele é muito popular. Muito mais que Salt e Ansible. Deve ser ótimo. Achei "muito parecido" com puppet (até mais complexo) e eu apostei no Puppet.</p>
+
+					</aside>
+				</section>
+
+				<!--
+				<section data-background="#BA9600">
+				-->
+				<section>
+					<h2>Mas, mas, ...</h2>
+					<br/>
+					<p><i>Ahh, é muito complicado.</i></p>
+					<p><i>Ahh, eu tenho um script aqui que já faz tudo o que eu preciso.</i></p>
+					<p><i>Ahh, essa tarefa aqui precisa de um input humano diferente toda vez, não tem como automatizar.</i></p>
+					<p> ... </p>
+
+					<aside class="notes">
+					<small>
+					<p>Vamos automatizar/codificar?</p>
+					<p>Coisas que eu já ouvi.</p>
+					<p>Gente que veio me agradecer depois por eu ter mostrado o Ansible.</p>
+				</small>
+					</aside>
+
+				</section>
 				</section>
 
 				<section>
+				<section>
 					<img src="images/ansible-architecture.svg" style="border:0;">
 					<p><i>"Ansible’s <a href="http://docs.ansible.com/ansible/index.html">main goals</a> are simplicity and ease-of-use."</i></p>
+					<p>Ansible pode ser bastante <b>transparente</b> no ambiente.</p>
 					<aside class="notes">
 					 <p>Objetivo explícito: simplicidade e facilidade de uso.</p>
 					 <p>Control Machine: o seu laptop ou um servidor.</p>
@@ -97,13 +206,62 @@
 
 					</aside>
 				</section>
-
-			<section>
-				<!--
-				<section data-background="#B5533C">
-				-->
 				<section>
-					<h2>Bora brincar</h2>
+					<pre><code data-trim>
+- hosts: all
+  name: Install Nginx Server
+  tasks:
+  - name: Ensure nginx is installed.
+    yum: name=nginx state=installed
+
+  - name: Copy nginx configuration in place.
+    template: src=nginx.conf.j2 dest=/etc/nginx/nginx.conf
+    notify:
+    - reload nginx
+
+  - name: Ensure nginx is started and enabled to start at boot.
+    service: name=nginx state=started enabled=yes
+  handlers:
+  - name: reload nginx
+    service: name=nginx state=restarted
+					</code></pre>
+					<p><i>Install Nginx Server</i> é uma <b>play</b>, aplicada em <i>all</i> hosts
+					<p><i>yum</i>, <i>template</i> e <i>service</i> são <b>modules</b></p>
+					<aside class="notes">
+						<p>Simples?</p>
+						<p>YAML: "é só dados", "não é uma linguagem de programação". Sei, como se isso ajudasse neste caso.</p>
+						<p>Mas tem a vantagem de ser mais facilmente consumível programaticamente.</p>
+						<p>Note o <i>handler</i> separado.</p>
+						<p>Cada task pode ter um name. Mas é opcional.</p>
+					</aside>
+				</section>
+
+				<section>
+					<h3>Loops</h3>
+					<pre><code data-trim>
+- hosts: all
+  tasks:
+  - name: create symlinks for our app
+    file: >
+      state=link src=/opt/myapp/bin/{{ item }}
+      dest=/usr/local/bin/myapp-{{ item }} force=yes
+    with_items:
+      - run
+      - build
+      - update
+      - foo
+					</code></pre>
+					<p>with_dict, with_nested, with_fileglobs, e <a href="http://docs.ansible.com/ansible/playbooks_loops.html">mais...</a></p>
+					<aside class="notes">
+						<p>Idempotência: uma bandeira do Puppet. Ele é provavelmente o melhor dos 3 nisso, mas não é como se os outros ignorassem esse conceito.</p>
+					</aside>
+				</section>
+			</section>
+			</section>
+
+
+				<section>
+					<h2>Demo</h2>
 					<img src="images/fazendo-arte.jpg"/>
 					<p><a href="https://github.com/dgmorales/workshop-ansible">https://github.com/dgmorales/workshop-ansible</a></p>
 					<aside class="notes">
@@ -112,19 +270,22 @@
 			</section>
 
 				<section>
-					<h2>Mais ...</h2>
+					<h2>Recapitulando ...</h2>
 					<ul>
 						<!--
 						<li><a href="https://doauto.wordpress.com/2016/06/30/criando-pacotes-facilmente-com-o-fpm/">Criar pacotes é uma barbada com o FPM</a></li>
 						-->
 						<li><a href="http://docs.ansible.com/ansible/playbooks_variables.html">Varíaveis</a></li>
+						<ul>
+							<li>E <a href="http://docs.ansible.com/ansible/playbooks_prompts.html">prompts</a> de variáveis</li>
+						</ul>
 						<li>Criando <a href="http://docs.ansible.com/ansible/playbooks_roles.html#roles">roles</a></li>
 						<li>Senhas no <a href="http://docs.ansible.com/ansible/playbooks_vault.html">Ansible Vault</a> ...
 							<ul><li> ... ou em algo como o <a href="https://www.vaultproject.io/">Hashicorp Vault</a> + <a href="http://docs.ansible.com/ansible/playbooks_lookups.html">lookups</a> (<a href="https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/lookup/hashi_vault.py">hashi_vault</a> ou <a href="https://github.com/jhaals/ansible-vault">ansible-vault</a>)</li></ul>
-						<li>Suporte ao Windows</li>
-						<li>ansible-container</li>
-						<li>Ansible Tower</li>
-						<li>Integrando com o Rundeck</li>
+						<li><a href="http://docs.ansible.com/ansible/intro_windows.html">Suporte ao Windows</a></li>
+						<li><a href="https://docs.ansible.com/ansible-container/">ansible-container</a></li>
+						<li>Ansible Tower (será open source um dia)</li>
+						<li>Pode ser integrado com o <a href="http://rundeck.org/plugins/ansible/2016/03/11/ansible-plugin.html">Rundeck</a> e o <a href="https://theforeman.org/plugins/foreman_ansible/1.x/index.html">Foreman</a></li>
 					</ul>
 					<aside class="notes">
 						<p>O meu ponto é que se fazer tudo do jeito ideal está te impedindo de começar, então comece de outro jeito.<p>
@@ -135,14 +296,61 @@
 					</aside>
 
 				</section>
-			</section>
 
+				<section>
+				<section>
+					<h2>E ... Windows</h2>
+					<pre><code data-trim>
+...
+  - name: install iis
+    win_feature:
+      name: "Web-Server"
+      state: present
+      restart: no
+      include_sub_features: yes
+      include_management_tools: no
+  - name: create new website
+    win_iis_website:
+      name: "Ansible Test Site"
+      state: started
+      port: 8080
+      physical_path: "{{ ansible_site_path }}"
+  - name: Open site's port on firewall
+    win_firewall_rule:
+      name: mysite8080
+      enable: yes
+      state: present
+      localport: 8080
+      action: Allow
+      direction: In
+      protocol: Tcp
+					</code></pre>
+				</section>
+				<section>
+
+					<ul>
+						<li><a href="https://doauto.blog/2016/12/11/ansible-windows-o-basico-ntlm-dsc-e-mais/"><i>Post</i> meu</a> sobre gerenciar Windows com ansible.</li>
+						<li>Problema: o ansible <b>não roda no Windows</b>!</li>
+						<ul>
+							<li>Oh wait, docker! (<a href="https://doauto.blog/2016/12/22/ansible-windows-rodando-ansible-a-partir-do-windows-com-docker/"> outro post</a>)</li>
+						</ul>
+						<li>Doc do <a href="http://docs.ansible.com/ansible/intro_windows.html">suporte ao Windows</a></li>
+						<li><a href="http://docs.ansible.com/ansible/list_of_windows_modules.html">Lista de módulos</a> para Windows</li>
+						<li>Powershell <i>Desired State Configuration</i> (<a href="http://www.systemcentercentral.com/day-1-intro-to-powershell-dsc-and-configuring-your-first-pull-server/">DSC</a>)</li>
+						<ul>
+							<li>Módulo <a href="https://github.com/trondhindenes/Ansible-win_dsc">win_dsc</a>, <a href="https://github.com/trondhindenes/AnsibleDscModuleGenerator">gerador</a> automático de módulos DSC Ansible, e uma <a href="https://github.com/trondhindenes/Ansible-Auto-Generated-Modules/tree/master">penca de módulos convertidos</a>!</li>
+						</ul>
+					</ul>
+				</section>
+			  </section>
+				
 				<section>
 					<h2>Contato</h2>
 					<br/>
 					<p>Diego Morales</p>
 					<p>
 						<small>
+						<br/>
 						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
 						<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a>
 						&nbsp;
@@ -152,10 +360,27 @@
 							<img src="images/wordpress.png" height="32" width="32" border="0" style="border:none;vertical-align:middle;"/>
 							<a href="http://doauto.blog" style="vertical-align:middle;">Do, Automate, Repeat: http://doauto.blog</a>
 							<br/>
+						&nbsp;
+						<img src="images/FB-f-Logo__blue_29.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="https://www.facebook.com/papodesysadmin" style="vertical-align:middle;">/papodesysadmin</a>
+						&nbsp;
+						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<img src="images/Logo1.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="http://twitter.com/papodesysadmin" style="vertical-align:middle;">@papodesysadmin</a>
+						&nbsp;
+						<img src="images/wordpress.png" height="32" width="32" border="0" style="border:none;vertical-align:middle;"/>
+						<a href="http://papodesysadmin.org" style="vertical-align:middle;">http://papodesysadmin.org</a>
+						<br/>
+					  <br/>
+						<img src="images/Logo1.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="http://tg.me/ansiblebr" style="vertical-align:middle;">@ansiblebr</a>
+						&nbsp;
+						<img src="images/Logo1.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="http://tg.me/devopsbr" style="vertical-align:middle;">@devopsbr</a>
+					  <br/>
+					  <p>Slides: http://dgmorales.info/talks/workshop-ansible-phpexp17</p>
 						</small>
 					</p>
-					<br/>
-					<p>Slides: http://dgmorales.info/talks/workshop-ansible</p>
 			</section>
 
 			</div>

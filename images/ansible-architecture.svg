@@ -15,8 +15,11 @@
    viewBox="0 0 1213.9366 633.93665"
    id="svg4985"
    version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="ansible-architecture.svg">
+   inkscape:version="0.92.0 r"
+   sodipodi:docname="ansible-architecture.svg"
+   inkscape:export-filename="/home/dmorales/img/diagrams/ansible-architecture.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
   <defs
      id="defs4987">
     <marker
@@ -1651,7 +1654,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="493.29654"
+     inkscape:cx="254.01083"
      inkscape:cy="294.00044"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -1660,9 +1663,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1916"
+     inkscape:window-width="956"
      inkscape:window-height="1045"
-     inkscape:window-x="0"
+     inkscape:window-x="1366"
      inkscape:window-y="31"
      inkscape:window-maximized="0" />
   <metadata
@@ -1673,7 +1676,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1977,7 +1980,6 @@
          id="rect4995"
          style="opacity:1;fill:#5bbdbf;fill-opacity:1;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <text
-         sodipodi:linespacing="125%"
          id="text5547"
          y="126.00285"
          x="340.37488"
@@ -2006,7 +2008,6 @@
          id="rect4995-2"
          style="opacity:1;fill:#ff5850;fill-opacity:1;stroke:#000000;stroke-width:8.84988308;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <text
-         sodipodi:linespacing="125%"
          id="text5547-5"
          y="83.456429"
          x="-36.089031"
@@ -2141,7 +2142,6 @@
          id="rect4995-0-5"
          style="opacity:1;fill:#4d4d4d;fill-opacity:1;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <text
-         sodipodi:linespacing="125%"
          id="text5547-75-8"
          y="362.17276"
          x="832.28027"
@@ -2200,7 +2200,6 @@
          id="rect4995-0"
          style="opacity:1;fill:#4d4d4d;fill-opacity:1;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <text
-         sodipodi:linespacing="125%"
          id="text5547-75"
          y="51.293259"
          x="807.53296"
@@ -2489,8 +2488,7 @@
        style="font-style:normal;font-weight:normal;font-size:47.7712326px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="-79.294922"
        y="-72.943245"
-       id="text19088"
-       sodipodi:linespacing="125%"><tspan
+       id="text19088"><tspan
          sodipodi:role="line"
          id="tspan19090"
          x="-79.294922"
@@ -2504,19 +2502,17 @@
        inkscape:connector-curvature="3" />
     <path
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7501-3-1-0-6-69)"
-       d="M 454.73534,310.7022 808.49467,110.20339"
+       d="M 452.20829,334.25081 812.9759,111.54304"
        id="path7493-4-6-4-3-2"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="3"
-       inkscape:connection-start="#g4584-7"
        inkscape:connection-end="#g4545" />
     <path
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker7501-3-1-0-6-8)"
-       d="m 459.98695,363.71566 329.43527,2.46737"
+       d="m 455.90786,369.28908 333.51436,-1.53557"
        id="path7493-4-6-4-3-0"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="3"
-       inkscape:connection-start="#g4584-7"
        inkscape:connection-end="#g4534" />
     <g
        id="g5333">
@@ -2536,8 +2532,7 @@
            style="font-style:normal;font-weight:normal;font-size:44.88937378px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            x="340.37488"
            y="126.00285"
-           id="text5547-7"
-           sodipodi:linespacing="125%"><tspan
+           id="text5547-7"><tspan
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35px;line-height:125%;font-family:Comfortaa;-inkscape-font-specification:'Comfortaa, Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle"
              sodipodi:role="line"
              x="340.37488"
